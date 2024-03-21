@@ -133,9 +133,30 @@ const updateUserProfile = async (userId, name, phone=null, cellPhone=null, email
     });
 }
 
+const deleteUserProfile = async (userId) => {
+
+    console.log('Starting the deletion of a user profile');
+
+    const query = `update user set deleted_at = now() where id = ?`
+    const values = [userId];
+
+    return new Promise ((resolve, reject) => {
+        connection.execute(query, values, (err, res) => {
+            if(err) {
+                console.log('Error deleting a user profile: ', err);
+                reject(err);
+            } else {
+                console.log('Success deleting a user profile');
+                resolve( { id: userId });
+            }
+        });
+    });
+}
+
 module.exports = {
     getAllUserProfile,
     createUserProfile,
     getUserProfile,
-    updateUserProfile
+    updateUserProfile,
+    deleteUserProfile
 }

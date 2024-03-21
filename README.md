@@ -52,7 +52,11 @@ Retorna todos os perfis de usuários cadastrados.
   Retorna o perfil de um usuário específico, identificado pelo parâmetro :id.
 
 #### 4. Atualização do perfil de um usuário pelo seu ID
-- GET `/user/:id/profile`
+- PUT `/user/:id/profile`
   Atualiza o perfil de um usuário específico, identificado pelo parâmetro :id.
+
+#### 5. Excluir o perfil de um usuário pelo seu ID
+- DELETE `/user/:id/profile`
+  Exclui o perfil de um usuário específico, identificado pelo parâmetro :id.
 
 

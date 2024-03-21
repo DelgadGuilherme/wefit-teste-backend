@@ -10,6 +10,8 @@ router.get('/profiles', userController.getAllUserProfile);
 
 router.get('/:id/profile', userProfileMiddleware.getValidateFields, userController.getUserProfile);
 
-router.patch('/:id/profile', userProfileMiddleware.pathValidateFields, userController.updateUserProfile);
+router.put('/:id/profile', userProfileMiddleware.putValidateFields, userController.updateUserProfile);
+
+router.delete('/:id/profile', userProfileMiddleware.deleteValidateFields, userController.deleteUserProfile);
 
 module.exports = router;
