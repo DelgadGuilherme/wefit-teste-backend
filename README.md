@@ -22,3 +22,32 @@ Quanto à decisão de não criar uma tabela separada para bairros, isso pode ser
 
 ![Modelagem do banco de dados](modeling/data-base.png)
 
+### Rotas da API e Funcionalidades.
+
+#### 1. Criação de Perfil de Usuário
+- POST `/user/profile`
+  Cria o perfil de um usuário.
+    ```
+        body: { 
+            "user_name": "João",
+            "cnpj": "209238493894",
+            "cpf": "470.278.570-22",
+            "cell_phone":  "(55) 12 998767-0954",
+            "email": "joao@gmail.com",
+            "confirm_email": "joao@gmail.com",
+            "state_name": "São paulo",
+            "postal_code": "12246021",
+            "street_name": "Rua 1",
+            "number": 1,
+            "city_name": "São Jose dos Campos",
+            "neighborhood": "Bairro 2"
+        }
+  ```
+#### 2. Listagem de Perfis de Usuários
+- GET `/user/profiles`
+Retorna todos os perfis de usuários cadastrados.
+
+#### 3. Obter Perfil de Usuário por ID
+- GET `/user/:id/profile`
+  Retorna o perfil de um usuário específico, identificado pelo parâmetro :id.
+

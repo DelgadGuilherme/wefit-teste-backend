@@ -10,7 +10,13 @@ const postUserProfile =  async (req, res) => {
         const state = await stateController.getState(state_name);
         const city = await cityController.getCity(city_name, state.id);
         const street = await streetController.getStreet(street_name, number, neighborhood, postal_code, city.id, complement);
-        const user = await userModel.createUserProfile(user_name, phone, cell_phone, email, cpf, cnpj, street.id);
+
+        const formatedCpf = cpf?.replace(/[.-\s]/g, '');
+        const formatedCnpj = cnpj?.replace(/[.-\s]/g, '');
+        const formatedPhone = phone?.replace(/[()-\s]/g, '');
+        const formatedCellPhone = cell_phone?.replace(/[()-\s]/g, '');
+
+        const user = await userModel.createUserProfile(user_name, formatedPhone, formatedCellPhone, email, formatedCpf, formatedCnpj, street.id);
 
         res.status(200).send({result: {user: user}});
     } catch (error) {
