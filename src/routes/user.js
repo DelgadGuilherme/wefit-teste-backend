@@ -10,4 +10,6 @@ router.get('/profiles', userController.getAllUserProfile);
 
 router.get('/:id/profile', userProfileMiddleware.getValidateFields, userController.getUserProfile);
 
+router.patch('/:id/profile', userProfileMiddleware.pathValidateFields, userController.updateUserProfile);
+
 module.exports = router;

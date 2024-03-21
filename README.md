@@ -51,3 +51,8 @@ Retorna todos os perfis de usuários cadastrados.
 - GET `/user/:id/profile`
   Retorna o perfil de um usuário específico, identificado pelo parâmetro :id.
 
+#### 4. Atualização do perfil de um usuário pelo seu ID
+- GET `/user/:id/profile`
+  Atualiza o perfil de um usuário específico, identificado pelo parâmetro :id.
+
+

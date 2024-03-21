@@ -6,6 +6,7 @@ const getAllUserProfile = async () => {
 
     const query = `
         select
+            u.id,
             u.name user_name,
             case
                 when u.cnpj is not null then 'juridical'
@@ -51,6 +52,7 @@ const getUserProfile = async (userId) => {
 
     const query = `
         select
+            u.id,
             u.name user_name,
             case
                 when u.cnpj is not null then 'juridical'
@@ -111,8 +113,29 @@ const createUserProfile = async (name, phone=null, cellPhone=null, email, cpf, c
     });
 }
 
+const updateUserProfile = async (userId, name, phone=null, cellPhone=null, email, cpf, cnpj=null, streetId) => {
+
+    console.log('Starting the update of a user profile');
+
+    const query = `update user set name = ?, phone = ?, cell_phone = ?, email = ?, cpf = ?, cnpj = ?, street_id = ? where id = ?`
+    const values = [name, phone, cellPhone, email, cpf, cnpj, streetId, userId];
+
+    return new Promise ((resolve, reject) => {
+        connection.execute(query, values, (err, res) => {
+            if(err) {
+                console.log('Error updating a user profile: ', err);
+                reject(err);
+            } else {
+                console.log('Success updating a user profile');
+                resolve( { id: userId, name: name });
+            }
+        });
+    });
+}
+
 module.exports = {
     getAllUserProfile,
     createUserProfile,
-    getUserProfile
+    getUserProfile,
+    updateUserProfile
 }
