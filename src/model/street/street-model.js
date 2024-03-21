@@ -1,6 +1,6 @@
 const connection = require('../../connector/database-connector');
 
-const getStreet = async (streetName, number, neighborhood, postalCode, cityId, complement) => {
+const getStreet = async (streetName, number, neighborhood, postalCode, complement, cityId) => {
 
     console.log('Starting the search for street');
 
@@ -23,7 +23,6 @@ const getStreet = async (streetName, number, neighborhood, postalCode, cityId, c
             and s.postal_code = ?`;
 
     if(complement) {
-        console.log(complement);
         values.push(complement);
         query =
             `${query}

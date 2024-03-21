@@ -4,14 +4,14 @@ const router = express.Router();
 
 const userController = require('../controller/user/user-controller');
 
-router.post('/profile', userProfileMiddleware.postValidateFields, userController.postUserProfile);
+router.post('/profile', userProfileMiddleware.bodyValidateFields, userController.postUserProfile);
 
-router.get('/profiles', userController.getAllUserProfile);
+router.get('/profile', userController.getAllUserProfile);
 
-router.get('/:id/profile', userProfileMiddleware.getValidateFields, userController.getUserProfile);
+router.get('/:id/profile', userProfileMiddleware.idValidate, userController.getUserProfile);
 
-router.put('/:id/profile', userProfileMiddleware.putValidateFields, userController.updateUserProfile);
+router.put('/:id/profile', userProfileMiddleware.bodyValidateFields, userProfileMiddleware.idValidate, userController.updateUserProfile);
 
-router.delete('/:id/profile', userProfileMiddleware.deleteValidateFields, userController.deleteUserProfile);
+router.delete('/:id/profile', userProfileMiddleware.idValidate, userController.deleteUserProfile);
 
 module.exports = router;
