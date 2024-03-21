@@ -6,6 +6,8 @@ const userController = require('../controller/user/user-controller');
 
 router.post('/profile', userProfileMiddleware.postValidateFields, userController.postUserProfile);
 
-router.get('/profiles', userController.getAllUserProfile)
+router.get('/profiles', userController.getAllUserProfile);
+
+router.get('/:id/profile', userProfileMiddleware.getValidateFields, userController.getUserProfile);
 
 module.exports = router;
