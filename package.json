@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --files -r tsconfig-paths/register --inspect --ignore-watch node_modules src/bin/www.js"
+    "start": "ts-node-dev --files -r tsconfig-paths/register --inspect --ignore-watch node_modules app.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

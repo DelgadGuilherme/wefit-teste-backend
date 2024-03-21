@@ -20,5 +20,5 @@ Ao criar três tabelas separadas para armazenar informações de endereço do us
 
 Quanto à decisão de não criar uma tabela separada para bairros, isso pode ser justificado pelo fato de que os nomes de bairros podem variar bastante e não possuem uma padronização amplamente aceita. Ao invés disso, é comum incluir o nome do bairro como parte do endereço da rua na tabela "street", o que pode ser mais prático e flexível para lidar com essas variações.
 
-![Modelagem do banco de dados](src/modeling/data-base.png)
+![Modelagem do banco de dados](modeling/data-base.png)
 

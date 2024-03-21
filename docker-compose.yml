@@ -11,6 +11,7 @@ services:
       - MYSQL_DATABASE=$MYSQLDB_DATABASE
     ports:
       - $MYSQLDB_PORT:3306
+    command: --explicit_defaults_for_timestamp=1
     volumes:
       - ./data/:/var/lib/mysql
       - ./mysql-init-script/init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
